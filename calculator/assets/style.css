@@ -25,15 +25,20 @@ section {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+
+    width: 100vw;
+    height: 100vh;
 }
 
 .headCalc {
     font-size: 48px;
     justify-content: end;
     display: flex;
+    margin-right: 32px;
 }
+
 .calc {
-    background: var(--primary-color);;
+    background: var(--primary-color);
     
     display: flex;
     flex-direction: column;
@@ -42,6 +47,9 @@ section {
     height: 620px;
     width: 375px;
     border-radius: 20px;
+    box-shadow: 0 0 15px black;
+
+    cursor: default;
 }
 
 .buttons {
@@ -75,4 +83,7 @@ section {
 .btnColor2 {
     background: var(--tertiary-color);
     color: #1C1C1C;
+}
+.btn img {
+    width: 25px;
 }
