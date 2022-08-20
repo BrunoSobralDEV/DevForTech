@@ -26,6 +26,12 @@ section {
     justify-content: center;
     align-items: center;
 }
+
+.headCalc {
+    font-size: 48px;
+    justify-content: end;
+    display: flex;
+}
 .calc {
     background: var(--primary-color);;
     
