@@ -1,0 +1,5 @@
+nt-child para o AC e % => btnColor2 (mudar nome)
+
+link figma
+
+calcular todos os pixels por em ou rem
