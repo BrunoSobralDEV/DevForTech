@@ -1,18 +1,63 @@
 const $ = (query) => document.querySelector(query);
 
-const btn1 = $('#btn1').innerHTML
-const btn2 = $('#btn2').innerHTML
-const btn3 = $('#btn3').innerHTML
-const btn4 = $('#btn4').innerHTML
-const btn5 = $('#btn5').innerHTML
-const btn6 = $('#btn6').innerHTML
-const btn7 = $('#btn7').innerHTML
-const btn8 = $('#btn8').innerHTML
-const btn9 = $('#btn9').innerHTML
-const btnSum = $('#btn9').innerHTML
-const btnSubtraction = $('#btn9').innerHTML
-const btnMultiplication = $('#btn9').innerHTML
-const btnDivision = $('#btn9').innerHTML
-const btnEqual = $('#btn9').innerHTML
+const btn1 = $('#btn1')
+const btn2 = $('#btn2').textContent
+const btn3 = $('#btn3').textContent
+const btn4 = $('#btn4').textContent
+const btn5 = $('#btn5').textContent
+const btn6 = $('#btn6').textContent
+const btn7 = $('#btn7').textContent
+const btn8 = $('#btn8').textContent
+const btn9 = $('#btn9').textContent
+const btnAC = $('#btnAC').textContent
+const btnSum = $('#btn9').textContent
+const btnSubtraction = $('#btn9').textContent
+const btnMultiplication = $('#btn9').textContent
+const btnDivision = $('#btn9').textContent
+const btnEqual = $('#btn9').textContent
 
-console.log(btn3)
+// const keys = $('.buttons');
+// keys.addEventListener('click', (e) => {
+//   if (e.target.matches('div')) {
+//     console.log(typeof(e.target.tagName));
+//   }
+// });
+
+// Ver depois
+if (document.getElementById('display').textContent != 0) {
+  $('#btnAC').textContent = 'C'
+}
+
+function insert(num) {
+  let numberOnDisplay = $('#display').textContent;
+  
+  if (numberOnDisplay == 0) {
+    $('#display').textContent = num;
+  } else {
+    $('#display').textContent += num;
+  }
+}
+
+function clean () {
+  $('#display').textContent = 0;
+}
+
+function percent () {
+    var display = document.getElementById('display').textContent;
+    document.getElementById('display').textContent = display.substring(0, display.length -1);
+}
+
+function calc () {
+  var display = document.getElementById('display').textContent;
+  
+  // Último caracter for uma 'operação'. Evitar mostrar erro da função 'eval' no console
+  if (display.substring(display.length -1, display.length) == '+', '-', '*', '/', '%') {
+    return
+  }
+
+  if (display) {
+      document.getElementById('display').textContent = eval(display);
+  } else {
+      document.getElementById('display').textContent = "Nada..."
+  }
+}
