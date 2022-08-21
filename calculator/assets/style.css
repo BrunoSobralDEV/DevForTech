@@ -8,6 +8,7 @@
     --secondary-color: #505050;
     --tertiary-color: #D4D4D2;
     --orange-color: #FF9500;
+    --color-light: #EFE8DE;
     /* --bgprimary: */
 }
 
@@ -15,6 +16,7 @@
     margin: 0;
     padding: 0;
 }
+
 body {
     background: var(--tertiary-color);
     color: var(--tertiary-color);
@@ -91,11 +93,30 @@ section {
     width: 144px;
     border-radius: 30px;
 }
-
+.btnAc{
+    width: 226px;
+    border-radius: 30px;
+}
 .btnColor2 {
     background: var(--tertiary-color);
     color: #1C1C1C;
 }
 .btn img {
     width: 25px;
+}
+.darkModeBody {
+  background-color: var(--secondary-color);
+}
+.darkModeCalc {
+  background-color: var(--color-light);
+}
+.darkModeDisplay {
+  color: var(--secondary-color);
+}
+.settings {
+
+}
+.icon img {
+    height: 36px;
+    cursor: pointer;
 }

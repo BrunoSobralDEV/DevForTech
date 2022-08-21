@@ -51,13 +51,60 @@ function calc () {
   var display = document.getElementById('display').textContent;
   
   // Último caracter for uma 'operação'. Evitar mostrar erro da função 'eval' no console
-  if (display.substring(display.length -1, display.length) == '+', '-', '*', '/', '%') {
+  let operator = display.substring(display.length -1, display.length);
+  if (
+      operator == '+' ||
+      operator == '+' ||
+      operator == '*' ||
+      operator == '/'
+    ) {
     return
   }
 
   if (display) {
       document.getElementById('display').textContent = eval(display);
   } else {
-      document.getElementById('display').textContent = "Nada..."
+      document.getElementById('display').textContent = "Erro..."
+  }
+}
+
+
+// Quando alguma tecla numérica for pressionada:
+document.onkeydown=function(e){
+	if(e.which == 97) {
+      $('#display').textContent = 1;
+	}
+	if(e.which == 98) {
+      $('#display').textContent = 2;
+	}
+	if(e.which == 99) {
+    $('#display').textContent = 3;
+	}
+}
+
+function darkModeBody() {
+  let body = document.body;
+  body.classList.toggle("darkModeBody");
+  
+  let img = document.getElementsByTagName('img')
+  if(body.classList.contains("darkModeBody")) {
+    img[1].src = './assets/moon.svg';
+  } else {
+    img[1].src = './assets/sun.svg';
+  }
+  
+
+}
+function darkModeCalc() {
+  let calc = $('.calc');
+  let display = $('.display');
+  calc.classList.toggle("darkModeCalc");
+  display.classList.toggle("darkModeDisplay");
+
+  let img = document.getElementsByTagName('img')
+  if(calc.classList.contains("darkModeCalc")) {
+    img[2].src = './assets/sun.svg';
+  } else {
+    img[2].src = './assets/moon.svg';
   }
 }

@@ -9,6 +9,12 @@
     <title>Calculadora</title>
 </head>
 <body>
+    <!-- <div class="settings">
+        <img src="./assets/gear.svg" alt="gear-img">
+        <div onclick="darkModeBody()" class="icon"><img src="./assets/sun.svg"></div>
+        <div onclick="darkModeCalc()" class="icon"><img src="./assets/moon.svg"></div>
+    </div> -->
+    
     <section>
         <div class="calc">
             <div class="display" id="display">
@@ -17,10 +23,10 @@
 
             <div class="buttons">
                 <div class="btnGroup">
-                    <div class="btn btnColor2" id="btnAC" onclick="clean()">AC</div>
-                    <div class="btn btnColor2"><img src="./assets/+-.png" alt="" srcset=""></div>
-                    <div class="btn btnColor2" onclick="insert('%')">%</div>
-                    <div class="btn">÷</div>
+                    <div class="btn btnColor2 btnAc" id="btnAC" onclick="clean()">AC</div>
+                    <div class="btn btnColor2" style="display: none;"></div>
+                    <div class="btn btnColor2" style="display: none;"></div>
+                    <div class="btn" onclick="insert('/')">÷</div>
                 </div>
                 <div class="btnGroup">
                     <div class="btn" id="btn7" onclick="insert('7')">7</div>
@@ -41,6 +47,7 @@
                     <div class="btn" id="btn+" onclick="insert('+')">+</div>
                 </div>
                 <div class="btnGroup">
+                    <div class="btn" style="display: none;"></div>
                     <div class="btn btnZero" id="btn0" onclick="insert('0')">0</div>
                     <div class="btn" id="btn," onclick="insert(',')">,</div>
                     <div class="btn" id="btn=" onclick="calc()">=</div>
