@@ -43,7 +43,14 @@ function backspace() {
     document.getElementById('display').textContent = display.substring(0, display.length-1);
 }
 
-function clean () {
+function clearLast() {
+  let patternForOperators = /[+\-*\/]/g
+
+  let display = document.getElementById('display').innerText;
+  document.getElementById('display').innerText = display.substring(0, display.indexOf('*') + 1);
+}
+
+function clearAll () {
   $('#display').textContent = 0;
 }
 
@@ -73,13 +80,7 @@ function calc () {
   }
 }
 
-
 // Quando alguma tecla numérica for pressionada:
-const keys = {
-  97: 1,
-  98: 2,
-  99: 3
-}
 document.addEventListener('keydown', function (event) {
   let patternForNumbers = /[0-9]/g;
   let patternForOperators = /[+\-*\/]/g
@@ -109,7 +110,11 @@ document.addEventListener('keydown', function (event) {
   }
   if (event.key == 'Escape') {
     event.preventDefault();
-    clean()
+    clearAll()
+  }
+  if (event.key == 'Delete') {
+    event.preventDefault();
+    clearLast()
   }
 })
 
@@ -139,3 +144,4 @@ function darkModeCalc() {
     img[2].src = './assets/moon.svg';
   }
 }
+
