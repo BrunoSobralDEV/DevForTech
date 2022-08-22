@@ -1,7 +1,0 @@
-nt-child para o AC e % => btnColor2 (mudar nome)
-
-link figma
-
-calcular todos os pixels por em ou rem
-
-https://www.freecodecamp.org/portuguese/news/como-construir-uma-calculadora-html-do-zero-usando-javascript/
