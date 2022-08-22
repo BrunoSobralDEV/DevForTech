@@ -87,6 +87,10 @@ document.addEventListener('keydown', function (event) {
     event.preventDefault();
     insert(event.key)
   }
+  if (event.key === '.') {
+    event.preventDefault();
+    insert(',')
+  }
   if (event.key === ',') {
     event.preventDefault();
     insert(event.key)
