@@ -23,7 +23,7 @@ const btnEqual = $('#btn9').textContent
 //   }
 // });
 
-// Ver depois
+// Ver depois, deixar igual do iOS
 if (document.getElementById('display').textContent != 0) {
   $('#btnAC').textContent = 'C'
 }
@@ -36,6 +36,11 @@ function insert(num) {
   } else {
     $('#display').textContent += num;
   }
+}
+
+function backspace() {
+    let display = document.getElementById('display').textContent;
+    document.getElementById('display').textContent = display.substring(0, display.length-1);
 }
 
 function clean () {
@@ -70,17 +75,39 @@ function calc () {
 
 
 // Quando alguma tecla numérica for pressionada:
-document.onkeydown=function(e){
-	if(e.which == 97) {
-      $('#display').textContent = 1;
-	}
-	if(e.which == 98) {
-      $('#display').textContent = 2;
-	}
-	if(e.which == 99) {
-    $('#display').textContent = 3;
-	}
+const keys = {
+  97: 1,
+  98: 2,
+  99: 3
 }
+document.addEventListener('keydown', function (event) {
+  let patternForNumbers = /[0-9]/g;
+  let patternForOperators = /[+\-*\/]/g
+  if (event.key.match(patternForNumbers,)) {
+    event.preventDefault();
+    insert(event.key)
+  }
+  if (event.key === ',') {
+    event.preventDefault();
+    insert(event.key)
+  }
+  if (event.key.match(patternForOperators)) {
+    event.preventDefault();
+    insert(event.key)
+  }
+  if (event.key === 'Enter' || event.key === '=') {
+    event.preventDefault();
+    calc();
+  }
+  if (event.key === "Backspace") {
+    event.preventDefault();
+    backspace()
+  }
+  if (event.key == 'Escape') {
+    event.preventDefault();
+    clean()
+  }
+})
 
 function darkModeBody() {
   let body = document.body;
