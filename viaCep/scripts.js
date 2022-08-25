@@ -1,44 +1,74 @@
 const $ = (query) => document.querySelector(query);
 
-const cleanForm = (address) => {
-  $('#endereco').value = '';
-  $('#bairro').value = '';
-  $('#cidade').value = '';
-  $('#estado').value = '';
+const form = $('#form')
+const logradouro = $('#logradouro')
+const bairro = $('#bairro')
+const localidade = $('#localidade')
+const uf = $('#uf')
+let msg = $('#msg')
+
+const preencherCampos = (data) => {
+  logradouro.value = data.logradouro;
+  bairro.value = data.bairro;
+  localidade.value = data.localidade;
+  uf.value = data.uf;
 }
 
-const fillOutForm = (address) => { 
-$('#endereco').value = address.logradouro;
-  $('#bairro').value = address.bairro;
-  $('#cidade').value = address.localidade;
-  $('#estado').value = address.uf;
-}
-
-
-const eNumber = (number) => /^[0-9]+$/.test(number);
-
-const validZipCode = (zipCode) => zipCode.length == 8 && eNumber(zipCode); 
-
-const searchZipCode = async() => {
-  cleanForm();
+const setError = (message) => {
+  let formControl = $('#cep').parentElement;
+  formControl.classList.remove("success");
+  formControl.classList.add("error");
   
-  let zipCode = $('#cep').value;
-  zipCode = zipCode.replace('.','');
-  zipCode = zipCode.replace('-','');
-
-  const url = `https://viacep.com.br/ws/${zipCode}/json/`;
-  if (validZipCode(zipCode)){
-      const dados = await fetch(url); //capturar
-      const address = await dados.json(); //pegar só json
-      if (address.hasOwnProperty('erro')) {
-          $('#endereco').value = 'CEP não encontrado!';
-      } else {
-          fillOutForm(address);
-      }
-  } else {
-      $('#endereco').value = 'CEP incorreto!';
-  }
-   
+  msg.innerText = message;
 }
 
-$('#cep').addEventListener('focusout',searchZipCode);
+const setSuccess = () => {
+  let formControl = $('#cep').parentElement;
+  formControl.classList.remove("error");
+  formControl.classList.add("success");
+}
+
+const pesquisaCep = async () => {
+  let cep = $('#cep')
+  cep = cep.value;
+  cep = cep.replace(/\D/g, '');
+  
+  const url = `https://viacep.com.br/ws/${cep}/json/`;
+
+  if (cep != '') {
+    logradouro.value = 'buscando...';
+    bairro.value = 'buscando...';
+    localidade.value = 'buscando...';
+    uf.value = 'buscando...';
+
+    
+    if (cep.length === 8) {
+      const data = await fetch(url);
+      const endereco = await data.json();
+      if (("erro" in endereco)) {
+        setError('CEP não encontrado.');
+        logradouro.value = 'erro...';
+        bairro.value = 'erro...';
+        localidade.value = 'erro...';
+        uf.value = 'erro...';
+      } else {
+        preencherCampos(endereco);
+        setSuccess();
+      }
+    } else {
+      setError('CEP Inválido precisa ter 8 dígitos.');
+      logradouro.value = 'erro...';
+      bairro.value = 'erro...';
+      localidade.value = 'erro...';
+      uf.value = 'erro...';
+    }
+  } else {
+    return;
+  }
+}
+
+// cep.addEventListener('focusout', pesquisaCep)
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  pesquisaCep();
+})

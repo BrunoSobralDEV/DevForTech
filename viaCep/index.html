@@ -5,40 +5,45 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <title>viaCep</title>
 </head>
 <body>
   <main class="container">
     <header>
-      <h1 class="title">Consulta CEP</h1>
+      <h1 class="title">API viaCep</h1>
+      <i class="fa-solid fa-code-fork"></i>
     </header>
     
-    <div class="row">
-        <div class="inputbox">
-            <input type="text" id="cep"  required>
-            <label for="cep">CEP</label>
-        </div>
-        <div class="inputbox">
-            <input type="text" id="endereco"  required>
-            <label for="endereco">Endereço</label>
-        </div>
-        
-        <div class="inputbox">
-            <input type="text" id="bairro"  required>
-            <label for="bairro">Bairro</label>
-        </div>
-        <div class="inputbox">
-            <input type="text" id="cidade"  required>
-            <label for="cidade">Cidade</label>
-        </div>
-        <div class="inputbox">
-            <input type="text" id="estado"  required>
-            <label for="estado">Estado</label>
-        </div>
-    </div>
-    <div class="row">
-        <button id="btn">Salvar</button>
-    </div>
+    <form action="" class="form" id="form">
+      <div class="form-control">
+        <label for="cep">CEP</label>
+        <input type="text" id="cep" maxlength="8">
+        <i class="fas fa-exclamation-circle"></i>
+        <i class="fas fa-check-circle"></i>
+        <small id="msg">Mensagem de erro</small>
+      </div>
+          
+      <div class="form-control">
+        <label for="logradouro">Endereço</label>
+        <input type="text" id="logradouro" disabled style="cursor: not-allowed;">
+
+        <label for="bairro">Bairro</label>
+        <input type="text" id="bairro" disabled style="cursor: not-allowed;">
+
+        <label for="localidade">Cidade</label>
+        <input type="text" id="localidade" disabled style="cursor: not-allowed;">
+
+        <label for="uf">Estado</label>
+        <input type="text" id="uf" disabled style="cursor: not-allowed;">
+      </div>
+
+      <div class="form-control">
+        <button id="btn">Buscar</button>
+      </div>
+    </form>
 </main>
 
   <script src="scripts.js"></script>
