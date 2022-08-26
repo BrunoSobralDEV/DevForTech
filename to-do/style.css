@@ -122,10 +122,17 @@ button:hover {
 }
 
 main {
-    margin-top: 3rem;
+  margin-top: 3rem;
+  border: 2px solid #273FAD;
+  border-radius: 5px;
+  padding: 15px;
 }
 
 main .task-item {
   display: flex;
   justify-content: space-between;
+}
+
+.completed {
+  text-decoration: line-through;
 }
