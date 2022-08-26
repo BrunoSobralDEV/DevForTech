@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  
+  <!--font-awesome-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <title>To-Do</title>
+</head>
+<body>
+  <header class="header">
+    <div>
+      <h1>to.do</h1>
+    </div>
+  </header>
+
+  <section class="task-list  container">
+    <header>
+      <h2>Minhas tasks</h2>
+
+      <div>
+        <input type="text" placeholder="Adicionar novo todo" value="" id="taskInput">
+        
+        <button type="submit" data-testid="add-task-button" id="addTaskButton">
+          <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" color="#fff" height="16" width="16" xmlns="http://www.w3.org/2000/svg" style="color: rgb(255, 255, 255);">
+            <polyline points="9 11 12 14 22 4"></polyline>
+            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <main class="tasks-container">
+      <!-- <div class="taks-item">
+        <p>test</p>
+        <i></i>
+      </div> -->
+    </main>
+  </section>
+  <script src="scripts.js"></script>
+</body>
+</html>
