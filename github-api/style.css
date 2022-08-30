@@ -1,0 +1,16 @@
+body {
+    background: #131c10;
+    color: #fff;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
